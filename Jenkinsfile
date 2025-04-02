@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'git@gitea.com:Rembqq/jenkins-practice.git', credentialsId: ''
+                git url: 'https://github.com/Rembqq/jenkins-cpp-integration.git', credentialsId: 'github-pass'
             }
         }
         
@@ -13,7 +13,7 @@ pipeline {
                 // Крок для збірки проекту з Visual Studio
                 // Встановіть правильні шляхи до рішення/проекту та параметри MSBuild
                 // bat '"path to MSBuild" test_repos.sln /t:Build /p:Configuration=Release'
-		bat '"D:\MS Visual Studio Community 2022\MSBuild\Current\Bin" test_repos.sln /t:Build /p:Configuration=Release'
+		bat '"D:\\MS Visual Studio Community 2022\\MSBuild\\Current\\Bin\\MSBuild.exe" test_repos.sln /t:Build /p:Configuration=Release'
             }
         }
 
